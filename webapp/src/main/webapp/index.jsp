@@ -19,6 +19,7 @@
    </head>	
       <body>
       <h1 >" Welcome to Cloud DevOps Programme "</h1>
-      <p ><b>This is a sample static Page!</b></p>
+      <p ><b>This is Rajiv's sample static Page!</b></p>
+      <p > CICD pipeline created </p>
       </body>	
 </html>
