@@ -19,7 +19,6 @@
    </head>	
       <body>
       <h1 >" Welcome to Cloud DevOps Programme "</h1>
-      <p ><b>This is Rajiv's sample static Page!</b></p>
-      <p > CICD pipeline created </p>
+      <p > Hi , I am Raj !! Just created my CICD pipeline and doing fully automated deployment with webhook </p>
       </body>	
 </html>
