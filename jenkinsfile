@@ -10,10 +10,7 @@ node("master")
    }
    
    stage("Maven Build") 
-   {sh "mvn verify" }
+   {sh "echo maven verify" }
    stage("Maven Deploy") 
-   {sh "'   `echo Install tree`
-          `sudo yum install tree -y`
-           `tree` '" 
-    }
+   {sh " echo Install tree "}
 }
