@@ -1,0 +1,7 @@
+node("master") 
+{ 
+  stage ("init") 
+    { echo "stage 1"} 
+  stage("build")
+    { echo "build"}
+}
