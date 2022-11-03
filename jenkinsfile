@@ -3,14 +3,17 @@ node("master")
   stage ("git-clone") 
     { checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/prbolla-maven-project.git']]] } 
   stage("sonar scan")
-    { sh "mvn clean verify sonar:sonar \
+    { sh """mvn clean verify sonar:sonar \
               -Dsonar.projectKey=maven-sonar-scan \
               -Dsonar.host.url=http://44.202.34.12/ \
-              -Dsonar.login=sqp_b1dedb48744b794e538b2e0d37554c2b59fd0a2d"
+              -Dsonar.login=sqp_34bc535acbd81697937e55a0cbcce4682f75f810"""
    }
    
    stage("Maven Build") 
-   {sh "echo maven verify" }
+   {sh "mvn verify" }
    stage("Maven Deploy") 
-   {sh " echo Install tree "}
+   {sh " echo Install tree "
+    
+   
+   }
 }
