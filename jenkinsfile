@@ -4,15 +4,16 @@ node("master")
     { checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/prbolla-maven-project.git']]] } 
   stage("sonar scan")
     { sh "mvn clean verify sonar:sonar \
-              -Dsonar.projectKey=ram-test \
-              -Dsonar.host.url=http://52.202.100.42 \
-              -Dsonar.login=sqp_539071230ed4a088f885665eae47da5cd1ef7c84"
+              -Dsonar.projectKey=maven-sonar-scan \
+              -Dsonar.host.url=http://44.202.34.12/ \
+              -Dsonar.login=sqp_b1dedb48744b794e538b2e0d37554c2b59fd0a2d"
    }
    
    stage("Maven Build") 
    {sh "mvn verify" }
    stage("Maven Deploy") 
-   {sh "echo Install tree"}
-   {sh "sudo yum install tree -y"}
-   {sh "tree"}
+   {sh "'   `echo Install tree`
+          `sudo yum install tree -y`
+           `tree` '" 
+    }
 }
