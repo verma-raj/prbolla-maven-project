@@ -12,8 +12,8 @@ node("master")
                                      
                 }}
    stage("Maven Deploy") 
-   {echo " Deploy the WAR to tomcat "
-    
+   {    echo " Deploy the WAR to tomcat "
+    deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://18.232.169.252:90/webapps/')], contextPath: '/home/ec2-user/jenkins_home/workspace/pipeline_master/webapp/target', war: 'webapp.war'
    
    }
 }
