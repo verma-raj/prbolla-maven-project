@@ -8,8 +8,10 @@ node("master")
       sh 'mvn -v'
    docker.image('maven:3.8.6').inside{ 
                     sh 'pwd'
-                  echo "Inside Maven container "
+                    echo "Inside Maven container "
                     sh 'mvn -v'
+                    sh 'which mvn'
+                    
                     
                 }}
    stage("Maven Deploy") 
