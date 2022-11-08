@@ -9,7 +9,7 @@ node("master")
    docker.image('maven:3.8.6').inside{ 
                     sh 'pwd'
                     echo "Inside Maven container "
-                    sh 'mvn -v'
+                    sh 'mvn -v || true'
                     sh 'which mvn'
                                      
                 }}
