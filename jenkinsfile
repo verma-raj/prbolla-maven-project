@@ -4,8 +4,11 @@ node("master")
     { checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/prbolla-maven-project.git']]] } 
      
    stage("Maven Build") 
-   {docker.image('maven:3.8.6').inside{ 
+   { echo "inside Jenkins"
+      sh 'mvn -v'
+   docker.image('maven:3.8.6').inside{ 
                     sh 'pwd'
+                  echo "Inside container "
                     sh 'mvn -v'
                     
                 }}
