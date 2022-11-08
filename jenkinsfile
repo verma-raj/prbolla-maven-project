@@ -8,7 +8,7 @@ node("master")
                     sh 'pwd'
                     echo "Inside Maven container "
                     sh 'mvn -v '
-                    sh ' mvn clear verify'
+                    sh ' mvn clean verify'
                                      
                 }}
    stage("Maven Deploy") 
