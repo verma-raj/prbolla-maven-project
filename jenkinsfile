@@ -11,8 +11,7 @@ node("master")
                     echo "Inside Maven container "
                     sh 'mvn -v'
                     sh 'which mvn'
-                    
-                    
+                                     
                 }}
    stage("Maven Deploy") 
    {sh " echo Install tree "
