@@ -4,10 +4,10 @@ node("master")
     { checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/prbolla-maven-project.git']]] } 
      
    stage("Maven Build") 
-   {docker.image('maven:3.5.2').inside{ 
+   {docker.image('maven:3.8.6').inside{ 
                     sh 'pwd'
                     sh 'mvn -v'
-                    sh 'mvn clean install'
+                    
                 }}
    stage("Maven Deploy") 
    {sh " echo Install tree "
