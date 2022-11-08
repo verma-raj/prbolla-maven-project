@@ -1,19 +1,11 @@
-node("master") 
-{ 
-  stage ("git-clone") 
-    { checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/prbolla-maven-project.git']]] } 
-  stage("sonar scan")
-    { sh """mvn clean verify sonar:sonar \
-              -Dsonar.projectKey=maven-sonar-scan \
-              -Dsonar.host.url=http://44.202.34.12/ \
-              -Dsonar.login=sqp_34bc535acbd81697937e55a0cbcce4682f75f810"""
-   }
-   
-   stage("Maven Build") 
-   {sh "mvn verify" }
-   stage("Maven Deploy") 
-   {sh " echo Install tree "
-    
-   
-   }
+pipeline {
+    agent { docker { image 'maven:3.8.6' } }
+      stages {
+        stage('log version info') {
+      steps {
+        sh 'mvn --version'
+        sh 'mvn clean install'
+      }
+    }
+  }
 }
