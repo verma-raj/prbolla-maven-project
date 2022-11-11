@@ -1,4 +1,4 @@
-node("master") 
+node("slave1") 
 { 
   stage ("git-clone") 
     { checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/prbolla-maven-project.git']]] } 
